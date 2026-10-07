@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تم تأكيد طلبك بنجاح - نظارات رياضية للبالغين</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sport: {
+              black: '#0F172A',
+              red: '#DC2626',
+              redHover: '#B91C1C',
+              dark: '#1E293B'
+            }
+          },
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #F8FAFC;
+    }
+    .price-num {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+
+  <!-- كود Meta Pixel مع نظام التحقق ضد التكرار (Anti-Duplicate Purchase) -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const trackingCode = urlParams.get('tracking');
+    const orderToken = urlParams.get('token');
+
+    // تحميل إعدادات البيكسل وتفعيل التحقق
+    fetch('/api/config')
+      .then(res => res.json())
+      .then(cfg => {
+        if (cfg.pixelId) {
+          initMetaPixel(cfg.pixelId);
+          verifyAndTrackPurchase();
+        }
+      })
+      .catch(() => {});
+
+    function initMetaPixel(pixelId) {
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', pixelId);
+      fbq('track', 'PageView');
+    }
+
+    async function verifyAndTrackPurchase() {
+      if (!orderToken || !trackingCode) {
+        console.warn('[Meta Pixel Security] تم حظر إطلاق حدث Purchase: زيارة مباشرة بدون طلب حقيقي.');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/verify-purchase', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: orderToken, tracking: trackingCode })
+        });
+        const result = await response.json();
+
+        if (result.canTrack) {
+          fbq('track', 'Purchase', {
+            content_name: 'نظارات رياضية للبالغين (كرة القدم والرياضة)',
+            content_ids: ['ADULT-OPTIC-SPORT'],
+            value: Number(result.value),
+            currency: 'DZD',
+            order_id: result.tracking,
+            content_type: 'product'
+          }, { eventID: result.tracking });
+
+          console.log(`[Meta Pixel] تم إطلاق حدث Purchase بنجاح: ${result.value} DZD | معرف الطلب: ${result.tracking}`);
+        } else {
+          console.log('[Meta Pixel Security] تم حظر تكرار حدث Purchase (الطلب مسجل مسبقاً أو غير صالح):', result.reason);
+        }
+      } catch (err) {
+        console.error('[Meta Pixel Security Error]:', err);
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen py-10 px-4 flex items-center justify-center">
+
+  <div class="max-w-md w-full bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-2xl text-center space-y-6">
+    
+    <!-- أيقونة النجاح الخضراء -->
+    <div class="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto border-2 border-emerald-200 shadow-sm">
+      ✓
+    </div>
+
+    <!-- رسالة التأكيد المباشرة -->
+    <div>
+      <h1 class="text-2xl font-black text-sport-black">
+        شكراً لك ! تم تأكيد طلبك بنجاح
+      </h1>
+      <p class="text-xs md:text-sm font-bold text-slate-600 mt-1.5">
+        تم إرسال بيانات شحنتك مباشرة إلى مركز التوزيع التابع لـ Nord & Ouest Express.
+      </p>
+    </div>
+
+    <!-- بطاقة تفاصيل الطرد والشحنة -->
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-right space-y-2.5">
+      <div class="text-xs font-black text-sport-black border-b border-slate-200 pb-1.5 flex justify-between items-center">
+        <span>📦 بيانات الطرد والتتبع :</span>
+        <span class="text-[11px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">جاهز للشحن</span>
+      </div>
+
+      <div class="flex justify-between text-xs">
+        <span class="text-slate-500">رقم تتبع الشحنة (Tracking) :</span>
+        <span id="displayTracking" class="font-mono font-black text-sport-red bg-red-50 px-2.5 py-0.5 rounded border border-red-200 dir-ltr text-left">
+          جاري التجهيز...
+        </span>
+      </div>
+
+      <div class="flex justify-between text-xs">
+        <span class="text-slate-500">المنتج :</span>
+        <span class="font-extrabold text-slate-800">نظارات رياضية للبالغين (2 في 1)</span>
+      </div>
+
+      <div class="flex justify-between text-xs">
+        <span class="text-slate-500">المبلغ الإجمالي عند الاستلام :</span>
+        <span id="displayTotal" class="font-black text-sport-black text-sm price-num">
+          -- دج
+        </span>
+      </div>
+
+      <div class="flex justify-between text-xs">
+        <span class="text-slate-500">طريقة الدفع :</span>
+        <span class="font-black text-emerald-700">الدفع نقداً بعد المعاينة (COD)</span>
+      </div>
+    </div>
+
+    <!-- الإرشادات القادمة للزبون -->
+    <div class="text-right bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs text-slate-700 space-y-2">
+      <div class="font-black text-sport-black flex items-center gap-1.5">
+        <span class="text-sport-red">★</span>
+        <span>الخطوات التالية لتسليم طلبك :</span>
+      </div>
+      <ul class="space-y-1.5 list-disc list-inside text-slate-600 font-medium leading-relaxed">
+        <li>سيتصل بك موزع Nord & Ouest Express هاتفياً لتنسيق وقت التسليم.</li>
+        <li>يرجى إبقاء هاتفك مفتوحاً لتسهيل التواصل مع الموزع.</li>
+        <li>يمكنك فحص محتويات الطرد (النظارة، الحزام الرياضي، الأذرع) قبل تسليم المبلغ.</li>
+        <li>يمكنك بعدها التوجه لأي أخصائي بصريات لتركيب قياس نظرك الطبي في الإطار.</li>
+      </ul>
+    </div>
+
+    <!-- زر العودة -->
+    <div class="pt-2">
+      <a href="/" class="block w-full bg-sport-black hover:bg-slate-800 text-white font-extrabold py-3.5 px-4 rounded-2xl text-sm transition shadow-md">
+        ← العودة للصفحة الرئيسية
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const tracking = params.get('tracking');
+    const total = params.get('total');
+
+    if (tracking) {
+      document.getElementById('displayTracking').textContent = tracking;
+    } else {
+      document.getElementById('displayTracking').textContent = 'غير متوفر (زيارة مباشرة)';
+    }
+
+    if (total) {
+      document.getElementById('displayTotal').textContent = Number(total).toLocaleString('fr-FR') + ' دج';
+    }
+  </script>
+
+</body>
+</html>

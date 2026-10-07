@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>نظارات رياضية للبالغين - إمكانية تركيب عدسات النظر عند أخصائي البصريات</title>
+  
+  <!-- خط Cairo الرائد للشاشات العربية وتجربة القراءة السريعة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sport: {
+              black: '#0F172A',     /* أسود داكن رياضي فخم */
+              dark: '#1E293B',      /* رمادي داكن للمحاذاة والحدود */
+              red: '#DC2626',       /* أحمر رياضي حيوي ملفت للاعتماد و الـ CTA */
+              redHover: '#B91C1C',  /* أحمر غامق للتفاعل */
+              redLight: '#FEF2F2',  /* خلفية باهتة خفيفة للأوسمة */
+              redBorder: '#FECACA',
+              grayBg: '#F8FAFC',    /* خلفية متناسقة مريحة */
+              cardBg: '#FFFFFF',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      overflow-x: clip;
+      -webkit-tap-highlight-color: transparent;
+    }
+    input, select, button {
+      font-family: 'Cairo', sans-serif;
+    }
+    .price-num {
+      font-variant-numeric: tabular-nums;
+    }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(220, 38, 38, 0.15);
+    }
+  </style>
+
+  <!-- كود Meta Pixel وتتبع التفاعل الأولي -->
+  <script>
+    fetch('/api/config')
+      .then(r => r.json())
+      .then(d => {
+        if (d.pixelId) {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          
+          fbq('init', d.pixelId);
+          fbq('track', 'PageView');
+          fbq('track', 'ViewContent', {
+            content_name: 'نظارات رياضية للبالغين (كرة القدم والرياضة)',
+            content_ids: ['ADULT-OPTIC-SPORT'],
+            content_type: 'product',
+            value: 2900,
+            currency: 'DZD'
+          });
+        }
+      }).catch(() => {});
+  </script>
+</head>
+<body class="antialiased pb-28 md:pb-24 selection:bg-red-600 selection:text-white">
+
+  <!-- 1. شريط الإشعار العلوي الأنيق (Top Banner) -->
+  <header class="bg-sport-black text-white text-xs md:text-sm font-bold py-2.5 px-4 text-center sticky top-0 z-50 shadow-md border-b border-slate-800">
+    <div class="max-w-xl mx-auto flex items-center justify-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-sport-red animate-pulse"></span>
+      <span>توصيل سريع لـ 58 ولاية عبر Nord & Ouest Express — الدفع عند الاستلام</span>
+    </div>
+  </header>
+
+  <main class="max-w-xl mx-auto px-4 pt-3 space-y-4">
+
+    <!-- 2. رأس الصفحة والمنتج (Minimaliste, Direct & Immédiat) -->
+    <section class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
+      
+      <!-- العنوان الرئيسي القصير والمباشر -->
+      <div class="text-center">
+        <h1 class="text-2xl md:text-3xl font-black text-sport-black leading-tight">
+          العب بثقة، واحمِ نظرك
+        </h1>
+        <p class="text-xs md:text-sm font-bold text-slate-600 mt-1">
+          نظارات رياضية مناسبة من 12 سنة إلى البالغين
+        </p>
+      </div>
+
+      <!-- إطار الصورة الحقيقية الكبيرة للمنتج -->
+      <div class="relative bg-slate-50 border border-slate-200 rounded-2xl p-3 md:p-4 text-center">
+        <div class="w-full h-64 md:h-80 flex items-center justify-center p-2 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden relative">
+          <img id="mainProductImage" src="/images/lunettes-adulte-noir.jpg" alt="نظارات رياضية" class="max-h-full max-w-full object-contain transition-all duration-300">
+        </div>
+
+        <!-- معاينات سريعة للزوايا والنظام المفكك -->
+        <div class="mt-2.5 flex items-center justify-center gap-2">
+          <button type="button" onclick="setMainImage(activeVariantImages.front, 0)" id="photoThumb0" class="photo-thumb active border-2 border-sport-black rounded-xl p-1 bg-white shadow-sm transition">
+            <img id="thumbImgFront" src="/images/lunettes-adulte-noir.jpg" alt="واجهة النظارة" class="w-12 h-12 object-contain rounded">
+          </button>
+          <button type="button" onclick="setMainImage(activeVariantImages.branches, 1)" id="photoThumb1" class="photo-thumb border-2 border-slate-200 rounded-xl p-1 bg-white shadow-sm transition opacity-70 hover:opacity-100">
+            <img id="thumbImgBranches" src="/images/lunettes-adulte-noir-branches.jpg" alt="الأذرع والحزام" class="w-12 h-12 object-contain rounded">
+          </button>
+        </div>
+      </div>
+
+      <!-- اختيار اللون قبل الاستمارة (متزامن فوراً مع الصورة ومع الطلب) -->
+      <div>
+        <label class="block text-xs font-black text-sport-black mb-2 text-right">
+          إختر اللون :
+        </label>
+        <div class="grid grid-cols-2 gap-3" id="colorSelector">
+          
+          <!-- زر الموديل الأسود -->
+          <button type="button" data-color="أسود" onclick="selectVariant('أسود')" class="color-btn active flex items-center justify-start gap-2.5 p-3 rounded-2xl border-2 border-sport-black bg-slate-900 text-white font-black text-xs md:text-sm shadow-md transition text-right">
+            <div class="w-10 h-10 rounded-xl bg-white p-0.5 border border-slate-300 flex-shrink-0 flex items-center justify-center">
+              <img src="/images/lunettes-adulte-noir.jpg" alt="موديل أسود" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <span class="block">أسود رياضي</span>
+              <span class="text-[10px] text-red-300 font-normal">مع تفاصيل حمراء</span>
+            </div>
+          </button>
+
+          <!-- زر الموديل الشفاف -->
+          <button type="button" data-color="شفاف" onclick="selectVariant('شفاف')" class="color-btn flex items-center justify-start gap-2.5 p-3 rounded-2xl border-2 border-slate-200 bg-white text-slate-800 font-black text-xs md:text-sm shadow-sm transition text-right">
+            <div class="w-10 h-10 rounded-xl bg-slate-50 p-0.5 border border-slate-200 flex-shrink-0 flex items-center justify-center">
+              <img src="/images/lunettes-adulte-transparent.jpg" alt="موديل شفاف" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <span class="block">شفاف بالكامل</span>
+              <span class="text-[10px] text-slate-500 font-normal">تصميم كلاسيكي</span>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. استمارة الطلب المباشرة والسريعة (مباشرة بعد اختيار اللون) -->
+    <section id="commande-section" class="bg-white rounded-3xl p-5 border-2 border-sport-black shadow-xl space-y-4">
+      
+      <div class="border-b border-slate-200 pb-3">
+        <div class="inline-flex items-center gap-1.5 bg-sport-red text-white text-xs font-black px-3 py-1 rounded-full mb-1.5 shadow-sm">
+          <span>⚡</span>
+          <span>استمارة تأكيد الطلب</span>
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-sport-black">
+          أدخل بياناتك لتجهيز طردك فوراً
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          الدفع نقداً عند استلام ومعاينة الطرد مع موزع Nord & Ouest Express.
+        </p>
+      </div>
+
+      <form id="orderForm" class="space-y-4">
+
+        <!-- حقل اللون المختار (متزامن تلقائياً) -->
+        <input type="hidden" name="couleur" id="couleur" value="أسود">
+
+        <!-- 1. اختيار الكمية -->
+        <div class="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+          <span class="text-xs font-black text-sport-black">1. الكمية المطلوبة :</span>
+          <div class="flex items-center gap-3">
+            <button type="button" id="btnMinus" class="w-9 h-9 rounded-xl bg-white border border-slate-300 font-black text-base flex items-center justify-center hover:bg-slate-100 active:scale-95 text-slate-800 shadow-sm">-</button>
+            <span id="qtyDisplay" class="font-black text-lg text-sport-black w-7 text-center price-num">1</span>
+            <button type="button" id="btnPlus" class="w-9 h-9 rounded-xl bg-white border border-slate-300 font-black text-base flex items-center justify-center hover:bg-slate-100 active:scale-95 text-slate-800 shadow-sm">+</button>
+          </div>
+        </div>
+
+        <!-- 2. طريقة التوصيل (منزل vs مكتب Stop Desk) بأسعار NOEST الحقيقية -->
+        <div>
+          <label class="block text-xs font-black text-sport-black mb-2">
+            2. طريقة التوصيل المفضلة :
+          </label>
+          
+          <div class="grid grid-cols-1 gap-2.5">
+            
+            <!-- توصيل لباب المنزل (الافتراضي) -->
+            <label id="labelHome" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-sport-black bg-slate-50 cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="delivery_mode" value="home" checked class="w-4 h-4 text-sport-red focus:ring-sport-red">
+                <div>
+                  <span class="font-extrabold text-xs md:text-sm text-sport-black block">توصيل لباب المنزل (الخيار الموصى به)</span>
+                  <span class="text-[11px] text-slate-500">يتصل بك الموزع لتسليم الطرد لعنوانك</span>
+                </div>
+              </div>
+              <span id="priceBadgeHome" class="text-xs font-black bg-white px-2.5 py-1 rounded-xl border border-slate-300 text-sport-black price-num">
+                -- دج
+              </span>
+            </label>
+
+            <!-- استلام من مكتب Stop Desk -->
+            <label id="labelDesk" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-slate-200 bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="delivery_mode" value="desk" class="w-4 h-4 text-sport-red focus:ring-sport-red">
+                <div>
+                  <span class="font-extrabold text-xs md:text-sm text-slate-800 block">استلام من المكتب (Stop Desk)</span>
+                  <span class="text-[11px] text-slate-500">استلام شخصي من مكتب Nord & Ouest Express بتكلفة أقل</span>
+                </div>
+              </div>
+              <span id="priceBadgeDesk" class="text-xs font-black bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 text-slate-700 price-num">
+                -- دج
+              </span>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- 3. معلومات الموقع الجغرافي (شرطية صارمة بين المنزل والمكتب) -->
+        <div class="space-y-3">
+          
+          <!-- الولاية (1 إلى 58) -->
+          <div>
+            <label class="block text-xs font-black text-sport-black mb-1">
+              3. الولاية *
+            </label>
+            <select id="wilaya_id" name="wilaya_id" required class="w-full p-3.5 rounded-2xl border border-slate-300 text-xs md:text-sm bg-slate-50 focus:border-sport-black focus:bg-white outline-none font-bold">
+              <option value="" disabled selected>إختر ولايتك (58 ولاية)</option>
+            </select>
+          </div>
+
+          <!-- حقول التوصيل للمنزل : البلدية + العنوان الدقيق -->
+          <div id="homeFieldsSection" class="space-y-3">
+            <div>
+              <label class="block text-xs font-black text-sport-black mb-1">
+                4. البلدية *
+              </label>
+              <select id="commune" name="commune" required class="w-full p-3.5 rounded-2xl border border-slate-300 text-xs md:text-sm bg-slate-50 focus:border-sport-black focus:bg-white outline-none font-bold">
+                <option value="" disabled selected>إختر الولاية أولاً</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-black text-sport-black mb-1">
+                5. عنوان التوصيل الدقيق لباب المنزل *
+              </label>
+              <input type="text" id="adresse" name="adresse" required placeholder="الحي، الشارع، أو أي معلم قريب لتسهيل وصول الموزع..." class="w-full p-3.5 rounded-2xl border border-slate-300 text-xs md:text-sm focus:border-sport-black focus:bg-white outline-none bg-slate-50">
+            </div>
+          </div>
+
+          <!-- حقول Stop Desk : اختيار مكتب NOEST بدون إظهار أي بلدية -->
+          <div id="deskFieldsSection" class="hidden space-y-2">
+            <label class="block text-xs font-black text-sport-black mb-1">
+              4. اختر مكتب Nord & Ouest Express في ولايتك *
+            </label>
+            <select id="station_code" name="station_code" class="w-full p-3.5 rounded-2xl border border-slate-300 text-xs md:text-sm bg-slate-50 focus:border-sport-black focus:bg-white outline-none font-bold">
+              <option value="" disabled selected>إختر الولاية أولاً لعرض المكاتب</option>
+            </select>
+            <div id="deskAddressInfo" class="text-xs text-slate-700 bg-slate-100 p-3 rounded-xl border border-slate-200 mt-1.5 hidden leading-relaxed"></div>
+          </div>
+
+        </div>
+
+        <!-- هـ. معلومات الاتصال بالزبون -->
+        <div class="space-y-2.5">
+          <div>
+            <label class="block text-xs font-black text-sport-black mb-1">
+              الإسم واللقب الكامل *
+            </label>
+            <input type="text" id="client" name="client" required placeholder="مثال: محمد العمري" class="w-full p-3.5 rounded-2xl border border-slate-300 text-xs md:text-sm focus:border-sport-black focus:bg-white outline-none bg-slate-50 font-bold">
+          </div>
+
+          <div>
+            <label class="block text-xs font-black text-sport-black mb-1">
+              رقم الهاتف * (للاتصال والتأكيد)
+            </label>
+            <input type="tel" id="phone" name="phone" required placeholder="مثال: 0550123456 أو 0660..." class="w-full p-3.5 rounded-2xl border border-slate-300 text-xs md:text-sm focus:border-sport-black focus:bg-white outline-none bg-slate-50 font-bold text-left dir-ltr">
+            <span id="phoneError" class="text-xs text-sport-red hidden mt-1 font-bold">يرجى إدخال رقم هاتف جزائري صالح مكون من 10 أرقام (يبدأ بـ 05، 06 أو 07).</span>
+          </div>
+        </div>
+
+        <!-- و. جدول الحساب الشفاف الإجمالي قبل الضغط على أطلب -->
+        <div class="bg-slate-50 border border-slate-300 rounded-2xl p-4 space-y-2 mt-3">
+          <div class="text-xs font-black text-sport-black pb-1.5 border-b border-slate-200 flex justify-between items-center">
+            <span>📋 ملخص الطلب :</span>
+            <span class="text-[11px] text-slate-500">حساب واضح بدون أي مصاريف خفية</span>
+          </div>
+          
+          <div class="flex justify-between text-xs text-slate-600">
+            <span>المنتج :</span>
+            <span class="font-extrabold text-slate-800">نظارات رياضية للبالغين (<span id="recapQtyText">1</span> قطعة)</span>
+          </div>
+
+          <div class="flex justify-between text-xs text-slate-600">
+            <span>الموديل المختار :</span>
+            <span id="recapCouleur" class="font-extrabold text-sport-black">أسود بتفاصيل حمراء</span>
+          </div>
+
+          <div class="flex justify-between text-xs text-slate-600">
+            <span>سعر النظارات :</span>
+            <span id="recapProductTotal" class="font-extrabold text-slate-800 price-num">2,900 دج</span>
+          </div>
+
+          <div class="flex justify-between text-xs text-slate-600">
+            <span id="recapTypeLivraison">تكلفة التوصيل :</span>
+            <span id="recapLivraison" class="font-extrabold text-slate-800 price-num">— (اختر ولايتك)</span>
+          </div>
+
+          <div class="flex justify-between text-sm md:text-base font-black text-sport-black pt-2.5 border-t border-slate-200">
+            <span>المجموع الإجمالي للدفع عند الاستلام :</span>
+            <span id="recapTotal" class="text-base md:text-xl text-sport-red price-num">2,900 دج</span>
+          </div>
+        </div>
+
+        <!-- رسالة الخطأ في حالة تعذر الحجز -->
+        <div id="formErrorMessage" class="hidden p-3 bg-red-50 border border-red-200 text-sport-red rounded-2xl text-xs font-bold leading-relaxed"></div>
+
+        <!-- ز. زر التأكيد النهائي المصمم للإبهام بلون أحمر رياضي جذاب -->
+        <div class="pt-1">
+          <button type="submit" id="submitBtn" class="w-full bg-sport-red hover:bg-sport-redHover text-white py-4 px-6 rounded-2xl shadow-xl shadow-red-600/30 flex flex-col items-center justify-center transition active:scale-98">
+            <span class="text-2xl font-black tracking-wide">أطلب الآن</span>
+            <span class="text-xs font-bold text-red-100 mt-0.5">الدفع نقداً عند استلام ومعاينة المنتج</span>
+          </button>
+        </div>
+
+        <div class="text-center text-[11px] text-slate-400 font-bold flex items-center justify-center gap-1.5">
+          <span>🔒</span>
+          <span>يتم إرسال الطلب مباشرة لنظام Nord & Ouest Express للتحضير والتسليم السريع.</span>
+        </div>
+
+      </form>
+
+    </section>
+
+    <!-- 4. قسم الأسئلة الشائعة (FAQ) في أسفل الصفحة للإجابة عن الترددات -->
+    <section class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3 mt-6">
+      <h2 class="text-base font-black text-sport-black">الأسئلة الأكثر تكراراً (FAQ) :</h2>
+
+      <div class="space-y-2.5 text-xs md:text-sm">
+        
+        <details class="group bg-slate-50 rounded-2xl p-3.5 border border-slate-200" open>
+          <summary class="font-black text-slate-900 cursor-pointer list-none flex justify-between items-center">
+            <span>1. هل يمكن تركيب قياس نظري الطبي عند أخصائي البصريات ؟</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-slate-600 mt-2.5 leading-relaxed">
+            <strong>نعم، بكل تأكيد.</strong> هيكل النظارة مصمم خصيصاً بحيث يمكن لأي أخصائي بصريات (Opticien) فك العدسات الشفافة الأصلية وتركيب عدسات نظر طبية مطابقة لقياسك تماماً، لتلعب كرة القدم أو أي رياضة برؤية واضحة وحماية فائقة.
+          </p>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+          <summary class="font-black text-slate-900 cursor-pointer list-none flex justify-between items-center">
+            <span>2. هل تناسب المقاسات الكبار أثناء الاحتكاك الرياضي الشديد ؟</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-slate-600 mt-2.5 leading-relaxed">
+            نعم، هي مصممة بمقاس البالغين للرياضيين. ومزودة بحزام مطاطي عريض قابل للشد والتعديل يضمن بقاء النظارة ثابتة ومحكمة على الرأس حتى أثناء القفز، الجري السريع، أو ارتطام الكرة.
+          </p>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+          <summary class="font-black text-slate-900 cursor-pointer list-none flex justify-between items-center">
+            <span>3. كيف يعمل نظام التبديل بين الأذرع والحزام المطاطي ؟</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-slate-600 mt-2.5 leading-relaxed">
+            النظارة مزودة بنظام فك وتركيب سهل بضغطة زر جانبية : يمكنك تركيب الأذرع الكلاسيكية لارتدائها بشكل عادي، أو استبدالها بالحزام المطاطي الرياضي المثبت أثناء ممارسة الرياضة.
+          </p>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+          <summary class="font-black text-slate-900 cursor-pointer list-none flex justify-between items-center">
+            <span>4. ما هي الألوان المتوفرة ؟</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-slate-600 mt-2.5 leading-relaxed">
+            يتوفر موديلان : <strong>الأسود الرياضي بتفاصيل حمراء</strong> و <strong>الشفاف بالكامل</strong>. الصور المعروضة في الصفحة هي الصور الحقيقية 100% للمنتج الذي ستستلمه.
+          </p>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+          <summary class="font-black text-slate-900 cursor-pointer list-none flex justify-between items-center">
+            <span>5. كم سعر المنتج وتكلفة التوصيل ؟</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-slate-600 mt-2.5 leading-relaxed">
+            سعر النظارة ثابت هو <strong>2,900 دج</strong>، ومصاريف التوصيل تضاف حسب ولايتك وتظهر مباشرة في جدول الحساب بعد تحديد الولاية دون أي مفاجآت.
+          </p>
+        </details>
+
+        <details class="group bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+          <summary class="font-black text-slate-900 cursor-pointer list-none flex justify-between items-center">
+            <span>6. هل أستطيع معاينة المنتج قبل دفع المال للموزع ؟</span>
+            <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-slate-600 mt-2.5 leading-relaxed">
+            نعم، الدفع يتم يداً بيد نقداً (Cash on Delivery) بعد استلام الطرد والتأكد من مطابقة الموديل المطلوب.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- 5. تذييل الصفحة -->
+    <footer class="pt-5 pb-2 text-center text-[11px] text-slate-400 border-t border-slate-200 space-y-1">
+      <p>© 2026 نظارات الحماية الرياضية للبالغين — جميع الحقوق محفوظة.</p>
+      <p>خدمات الشحن والتوزيع السريع : Nord & Ouest Express في 58 ولاية.</p>
+    </footer>
+
+  </main>
+
+  <!-- شريط الطلب العائم الذكي للهواتف (Sticky Bottom CTA Bar) -->
+  <div id="stickyCtaBar" class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_25px_rgba(0,0,0,0.1)] py-2.5 px-4 transition-all duration-300 transform translate-y-0">
+    <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
+      <div class="text-right">
+        <span class="text-[10px] md:text-[11px] font-extrabold text-slate-500 block leading-tight">المبلغ الإجمالي :</span>
+        <span id="stickyBarPrice" class="text-lg md:text-xl font-black text-sport-red price-num leading-tight">2,900 دج</span>
+      </div>
+      <button type="button" id="stickyCtaBtn" class="flex-1 bg-sport-red hover:bg-sport-redHover text-white py-3 px-5 rounded-2xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 transition active:scale-95">
+        <span class="text-lg md:text-xl font-black tracking-wide">أطلب الآن</span>
+        <span class="text-[11px] font-bold text-red-100 hidden sm:inline">— الدفع عند الاستلام ⚡</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- سكريبت التشغيل والتفاعل المتكامل -->
+  <script>
+    let deliveryData = { wilayas: [], desks: {} };
+    let selectedWilaya = null;
+    let currentDeliveryMode = 'home';
+    let currentQuantity = 1;
+    const PRIX_UNITAIRE = 2900;
+    let initiateCheckoutTracked = false;
+
+    // روابط الصور الحقيقية حسب اللون
+    const variantImages = {
+      'أسود': {
+        front: '/images/lunettes-adulte-noir.jpg',
+        branches: '/images/lunettes-adulte-noir-branches.jpg',
+        badgeText: 'موديل أسود بتفاصيل حمراء',
+        recapText: 'أسود بتفاصيل حمراء'
+      },
+      'شفاف': {
+        front: '/images/lunettes-adulte-transparent.jpg',
+        branches: '/images/lunettes-adulte-transparent-branches.jpg',
+        badgeText: 'موديل شفاف بالكامل',
+        recapText: 'شفاف بالكامل'
+      }
+    };
+
+    let activeVariantImages = variantImages['أسود'];
+
+    // مراجع عناصر الواجهة
+    const mainImgEl = document.getElementById('mainProductImage');
+    const thumbImgFront = document.getElementById('thumbImgFront');
+    const thumbImgBranches = document.getElementById('thumbImgBranches');
+    const photoThumb0 = document.getElementById('photoThumb0');
+    const photoThumb1 = document.getElementById('photoThumb1');
+    const imageColorBadge = document.getElementById('imageColorBadge');
+
+    const wilayaSelect = document.getElementById('wilaya_id');
+    const communeSelect = document.getElementById('commune');
+    const adresseInput = document.getElementById('adresse');
+    const homeFieldsSection = document.getElementById('homeFieldsSection');
+    const deskFieldsSection = document.getElementById('deskFieldsSection');
+    const deskStationSelect = document.getElementById('station_code');
+    const deskAddressInfo = document.getElementById('deskAddressInfo');
+
+    const priceBadgeHome = document.getElementById('priceBadgeHome');
+    const priceBadgeDesk = document.getElementById('priceBadgeDesk');
+    const labelHome = document.getElementById('labelHome');
+    const labelDesk = document.getElementById('labelDesk');
+
+    const recapCouleur = document.getElementById('recapCouleur');
+    const recapQtyText = document.getElementById('recapQtyText');
+    const recapProductTotal = document.getElementById('recapProductTotal');
+    const recapLivraison = document.getElementById('recapLivraison');
+    const recapTypeLivraison = document.getElementById('recapTypeLivraison');
+    const recapTotal = document.getElementById('recapTotal');
+    const couleurInput = document.getElementById('couleur');
+
+    const qtyDisplay = document.getElementById('qtyDisplay');
+    const btnMinus = document.getElementById('btnMinus');
+    const btnPlus = document.getElementById('btnPlus');
+
+    // 1. تحميل بيانات التوصيل الحقيقية من API NOEST
+    fetch('/api/delivery-data')
+      .then(res => res.json())
+      .then(data => {
+        deliveryData = data;
+        data.wilayas.forEach(w => {
+          const opt = document.createElement('option');
+          opt.value = w.code;
+          opt.textContent = `${w.code} - ولاية ${w.nom}`;
+          wilayaSelect.appendChild(opt);
+        });
+      })
+      .catch(err => console.error('Erreur chargement livraison:', err));
+
+    // 2. إدارة الكمية
+    btnMinus.addEventListener('click', () => {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        updateQuantityDisplay();
+      }
+    });
+
+    btnPlus.addEventListener('click', () => {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        updateQuantityDisplay();
+      }
+    });
+
+    function updateQuantityDisplay() {
+      qtyDisplay.textContent = currentQuantity;
+      recapQtyText.textContent = currentQuantity;
+      const productTotal = currentQuantity * PRIX_UNITAIRE;
+      recapProductTotal.textContent = `${productTotal.toLocaleString('fr-FR')} دج`;
+      updateRecapTotal();
+    }
+
+    // 3. تبديل الصور الحقيقية ومعاينات الزوايا
+    function setMainImage(src, thumbIdx) {
+      if (!mainImgEl) return;
+      mainImgEl.style.opacity = '0.35';
+      setTimeout(() => {
+        mainImgEl.src = src;
+        mainImgEl.style.opacity = '1';
+      }, 70);
+
+      if (thumbIdx === 0) {
+        photoThumb0.classList.add('border-sport-black', 'opacity-100');
+        photoThumb0.classList.remove('border-slate-200', 'opacity-70');
+        photoThumb1.classList.remove('border-sport-black', 'opacity-100');
+        photoThumb1.classList.add('border-slate-200', 'opacity-70');
+      } else {
+        photoThumb1.classList.add('border-sport-black', 'opacity-100');
+        photoThumb1.classList.remove('border-slate-200', 'opacity-70');
+        photoThumb0.classList.remove('border-sport-black', 'opacity-100');
+        photoThumb0.classList.add('border-slate-200', 'opacity-70');
+      }
+    }
+
+    // 4. اختيار الموديل وتبديل الصور الحقيقية فورياً
+    function selectVariant(colorName) {
+      const isBlack = (colorName === 'أسود' || colorName.includes('أسود'));
+      const chosenKey = isBlack ? 'أسود' : 'شفاف';
+      activeVariantImages = variantImages[chosenKey];
+
+      // 1. تحديث صور المعرض الحقيقية للموديل
+      thumbImgFront.src = activeVariantImages.front;
+      thumbImgBranches.src = activeVariantImages.branches;
+      setMainImage(activeVariantImages.front, 0);
+
+      // 2. تحديث الشارة والنصوص
+      if (imageColorBadge) {
+        imageColorBadge.textContent = activeVariantImages.badgeText;
+      }
+      recapCouleur.textContent = activeVariantImages.recapText;
+      couleurInput.value = chosenKey;
+
+      // 3. تحديث أزرار الاستمارة
+      document.querySelectorAll('.color-btn').forEach(btn => {
+        const btnColor = btn.getAttribute('data-color');
+        if (btnColor === chosenKey) {
+          btn.classList.add('active', 'border-sport-black', 'bg-slate-900', 'text-white');
+          btn.classList.remove('border-slate-200', 'bg-white', 'text-slate-800');
+        } else {
+          btn.classList.remove('active', 'border-sport-black', 'bg-slate-900', 'text-white');
+          btn.classList.add('border-slate-200', 'bg-white', 'text-slate-800');
+        }
+      });
+    }
+
+    // 5. تفاعل اختيار الولاية واستخراج أسعار NOEST ومكاتبها
+    wilayaSelect.addEventListener('change', async (e) => {
+      const wCode = parseInt(e.target.value, 10);
+      selectedWilaya = deliveryData.wilayas.find(w => w.code === wCode);
+
+      if (selectedWilaya) {
+        priceBadgeHome.textContent = `${selectedWilaya.tarif_domicile} دج`;
+        priceBadgeDesk.textContent = `${selectedWilaya.tarif_stopdesk} دج`;
+        updateRecapTotal();
+        populateDesks(wCode);
+      }
+
+      if (currentDeliveryMode === 'home') {
+        loadCommunesForWilaya(wCode);
+      }
+    });
+
+    async function loadCommunesForWilaya(wCode) {
+      communeSelect.innerHTML = '<option value="" disabled selected>جاري تحميل البلديات...</option>';
+      try {
+        const res = await fetch(`/api/communes/${wCode}`);
+        const communes = await res.json();
+        communeSelect.innerHTML = '<option value="" disabled selected>إختر بلديتك</option>';
+        communes.forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c.nom;
+          opt.textContent = c.nom;
+          communeSelect.appendChild(opt);
+        });
+      } catch (err) {
+        communeSelect.innerHTML = '<option value="المركز">المركز (Chef-lieu)</option>';
+      }
+    }
+
+    function populateDesks(wilayaCode) {
+      const desks = deliveryData.desks[wilayaCode] || [];
+      deskStationSelect.innerHTML = '';
+      deskAddressInfo.classList.add('hidden');
+      deskAddressInfo.textContent = '';
+      
+      if (desks.length === 0) {
+        deskStationSelect.innerHTML = '<option value="" disabled selected>لا يوجد مكتب متاح في هذه الولاية حالياً</option>';
+      } else {
+        deskStationSelect.innerHTML = '<option value="" disabled selected>إختر أقرب مكتب إليك في الولاية</option>';
+        desks.forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d.code;
+          opt.textContent = `${d.nom} (${d.code})`;
+          opt.dataset.address = d.adresse || '';
+          deskStationSelect.appendChild(opt);
+        });
+      }
+    }
+
+    deskStationSelect.addEventListener('change', () => {
+      const selected = deskStationSelect.options[deskStationSelect.selectedIndex];
+      if (selected && selected.dataset.address) {
+        deskAddressInfo.textContent = `📍 عنوان المكتب المحدد : ${selected.dataset.address}`;
+        deskAddressInfo.classList.remove('hidden');
+      } else {
+        deskAddressInfo.classList.add('hidden');
+      }
+    });
+
+    // 6. التبديل الصارم بين التوصيل للمنزل و Stop Desk
+    const radioModes = document.querySelectorAll('input[name="delivery_mode"]');
+    radioModes.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        currentDeliveryMode = e.target.value;
+
+        if (currentDeliveryMode === 'home') {
+          labelHome.classList.add('border-sport-black', 'bg-slate-50');
+          labelHome.classList.remove('border-slate-200', 'bg-white');
+          labelDesk.classList.remove('border-sport-black', 'bg-slate-50');
+          labelDesk.classList.add('border-slate-200', 'bg-white');
+
+          homeFieldsSection.classList.remove('hidden');
+          communeSelect.required = true;
+          adresseInput.required = true;
+
+          deskFieldsSection.classList.add('hidden');
+          deskStationSelect.required = false;
+          deskStationSelect.value = '';
+          deskAddressInfo.classList.add('hidden');
+          deskAddressInfo.textContent = '';
+
+          recapTypeLivraison.textContent = 'تكلفة التوصيل (لباب المنزل) :';
+
+          if (selectedWilaya && communeSelect.options.length <= 1) {
+            loadCommunesForWilaya(selectedWilaya.code);
+          }
+
+        } else {
+          // نمط Stop Desk : إخفاء البلدية فوراً وتفريغها منعاً للخلط
+          labelDesk.classList.add('border-sport-black', 'bg-slate-50');
+          labelDesk.classList.remove('border-slate-200', 'bg-white');
+          labelHome.classList.remove('border-sport-black', 'bg-slate-50');
+          labelHome.classList.add('border-slate-200', 'bg-white');
+
+          homeFieldsSection.classList.add('hidden');
+          communeSelect.required = false;
+          communeSelect.value = '';
+          adresseInput.required = false;
+          adresseInput.value = '';
+
+          deskFieldsSection.classList.remove('hidden');
+          deskStationSelect.required = true;
+
+          recapTypeLivraison.textContent = 'تكلفة التوصيل (مكتب Stop Desk) :';
+
+          if (selectedWilaya) {
+            populateDesks(selectedWilaya.code);
+          }
+        }
+
+        updateRecapTotal();
+      });
+    });
+
+    function updateRecapTotal() {
+      const productTotal = currentQuantity * PRIX_UNITAIRE;
+      const stickyPrice = document.getElementById('stickyBarPrice');
+
+      if (!selectedWilaya) {
+        recapTotal.textContent = `${productTotal.toLocaleString('fr-FR')} دج`;
+        if (stickyPrice) stickyPrice.textContent = `${productTotal.toLocaleString('fr-FR')} دج`;
+        return;
+      }
+
+      const deliveryFee = currentDeliveryMode === 'home' 
+        ? selectedWilaya.tarif_domicile 
+        : selectedWilaya.tarif_stopdesk;
+
+      recapLivraison.textContent = `${deliveryFee} دج`;
+      const total = productTotal + deliveryFee;
+      recapTotal.textContent = `${total.toLocaleString('fr-FR')} دج`;
+      if (stickyPrice) stickyPrice.textContent = `${total.toLocaleString('fr-FR')} دج`;
+    }
+
+    // 7. تتبع InitiateCheckout عند التفاعل الأولي مع الاستمارة
+    const allInputs = document.querySelectorAll('#orderForm input, #orderForm select');
+    allInputs.forEach(inp => {
+      inp.addEventListener('focus', () => {
+        if (!initiateCheckoutTracked && typeof fbq === 'function') {
+          const currentDeliveryCost = selectedWilaya ? (currentDeliveryMode === 'home' ? selectedWilaya.tarif_domicile : selectedWilaya.tarif_stopdesk) : 0;
+          const currentVal = (currentQuantity * PRIX_UNITAIRE) + currentDeliveryCost;
+          fbq('track', 'InitiateCheckout', {
+            content_name: 'نظارات رياضية للبالغين (كرة القدم والرياضة)',
+            content_ids: ['ADULT-OPTIC-SPORT'],
+            content_type: 'product',
+            value: currentVal,
+            currency: 'DZD'
+          });
+          initiateCheckoutTracked = true;
+        }
+      });
+    });
+
+    // 8. التحقق من صحة رقم الهاتف الجزائري
+    const phoneInput = document.getElementById('phone');
+    const phoneError = document.getElementById('phoneError');
+    phoneInput.addEventListener('input', () => {
+      const val = phoneInput.value.replace(/\s+/g, '');
+      const valid = /^0[567][0-9]{8}$/.test(val);
+      if (val.length >= 10 && !valid) {
+        phoneError.classList.remove('hidden');
+      } else {
+        phoneError.classList.add('hidden');
+      }
+    });
+
+    // 9. إرسال الطلب والتواصل مع الخادم
+    const orderForm = document.getElementById('orderForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formErrorMessage = document.getElementById('formErrorMessage');
+
+    orderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formErrorMessage.classList.add('hidden');
+
+      const phoneVal = phoneInput.value.replace(/\s+/g, '');
+      if (!/^0[567][0-9]{8}$/.test(phoneVal)) {
+        phoneError.classList.remove('hidden');
+        phoneInput.focus();
+        return;
+      }
+
+      if (!selectedWilaya) {
+        alert('يرجى اختيار ولايتك أولاً لحساب التوصيل وتوجيه الطرد.');
+        wilayaSelect.focus();
+        return;
+      }
+
+      const deliveryFee = currentDeliveryMode === 'home' 
+        ? selectedWilaya.tarif_domicile 
+        : selectedWilaya.tarif_stopdesk;
+
+      const totalMontant = (currentQuantity * PRIX_UNITAIRE) + deliveryFee;
+
+      const payload = {
+        client: document.getElementById('client').value,
+        phone: phoneVal,
+        wilaya_id: selectedWilaya.code,
+        couleur: couleurInput.value,
+        quantite: currentQuantity,
+        stop_desk: currentDeliveryMode === 'desk' ? 1 : 0,
+        montant: totalMontant
+      };
+
+      if (currentDeliveryMode === 'desk') {
+        payload.station_code = deskStationSelect.value;
+        payload.adresse = deskAddressInfo.textContent || `مكتب Stop Desk [${deskStationSelect.value}]`;
+      } else {
+        payload.commune = communeSelect.value;
+        payload.adresse = adresseInput.value;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="text-xl font-black">جاري تسجيل طلبك مع شركة التوصيل...</span>
+        <span class="text-xs font-bold text-red-100 mt-1">يرجى الانتظار لحظات</span>
+      `;
+
+      try {
+        const response = await fetch('/api/order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          // الانتقال لصفحة الشكر مع التوكن الفريد وتفاصيل الشحنة
+          window.location.href = `/merci.html?token=${encodeURIComponent(data.token)}&tracking=${encodeURIComponent(data.tracking)}&total=${payload.montant}`;
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span class="text-2xl font-black tracking-wide">أطلب الآن</span>
+            <span class="text-xs font-bold text-red-100 mt-0.5">الدفع نقداً عند استلام ومعاينة المنتج</span>
+          `;
+          formErrorMessage.textContent = data.message || 'حدث خطأ أثناء معالجة الطلب، يرجى مراجعة البيانات والمحاولة مجدداً.';
+          formErrorMessage.classList.remove('hidden');
+        }
+
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <span class="text-2xl font-black tracking-wide">أطلب الآن</span>
+          <span class="text-xs font-bold text-red-100 mt-0.5">الدفع نقداً عند استلام ومعاينة المنتج</span>
+        `;
+        formErrorMessage.textContent = 'تعذر الاتصال بالخادم، يرجى التحقق من اتصالك بالإنترنت.';
+        formErrorMessage.classList.remove('hidden');
+      }
+    });
+
+    // 10. شريط التمرير العائم السلس
+    const stickyCtaBtn = document.getElementById('stickyCtaBtn');
+    const stickyBarEl = document.getElementById('stickyCtaBar');
+
+    if (stickyCtaBtn) {
+      stickyCtaBtn.addEventListener('click', () => {
+        const formSection = document.getElementById('commande-section');
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(() => {
+            const firstEmptyInput = document.getElementById('client') || document.getElementById('phone');
+            if (firstEmptyInput) firstEmptyInput.focus();
+          }, 350);
+        }
+      });
+    }
+
+    if (submitBtn && stickyBarEl) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            stickyBarEl.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+            stickyBarEl.classList.remove('translate-y-0', 'opacity-100');
+          } else {
+            stickyBarEl.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+            stickyBarEl.classList.add('translate-y-0', 'opacity-100');
+          }
+        });
+      }, { threshold: 0.15 });
+      observer.observe(submitBtn);
+    }
+  </script>
+
+</body>
+</html>
