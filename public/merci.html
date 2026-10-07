@@ -42,34 +42,24 @@
 
   <!-- كود Meta Pixel مع نظام التحقق ضد التكرار (Anti-Duplicate Purchase) -->
   <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1422859033068055');
+    fbq('track', 'PageView');
+
     const urlParams = new URLSearchParams(window.location.search);
     const trackingCode = urlParams.get('tracking');
     const orderToken = urlParams.get('token');
 
-    // تحميل إعدادات البيكسل وتفعيل التحقق
-    fetch('/api/config')
-      .then(res => res.json())
-      .then(cfg => {
-        if (cfg.pixelId) {
-          initMetaPixel(cfg.pixelId);
-          verifyAndTrackPurchase();
-        }
-      })
-      .catch(() => {});
-
-    function initMetaPixel(pixelId) {
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-
-      fbq('init', pixelId);
-      fbq('track', 'PageView');
-    }
+    // تفعيل التحقق من عملية الشراء Purchase فوراً
+    verifyAndTrackPurchase();
 
     async function verifyAndTrackPurchase() {
       if (!orderToken || !trackingCode) {
@@ -104,6 +94,9 @@
       }
     }
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422859033068055&ev=PageView&noscript=1" />
+  </noscript>
 </head>
 <body class="min-h-screen py-10 px-4 flex items-center justify-center">
 
